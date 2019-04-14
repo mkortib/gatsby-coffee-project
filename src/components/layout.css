@@ -7,6 +7,8 @@
 }
 
 body {
+  overflow-x: hidden;
+  position: relative;
   background-color: var(--mainWhite);
   color: var(--mianDark);
   font-family: Verdana, Geneva, Tahoma, sans-serif !important;
@@ -56,4 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   background: var(--mainBrown);
+}
+
+.menu, .contact {
+  background-color: var(--mainGrey);
 }

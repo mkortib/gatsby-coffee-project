@@ -5,6 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BackgroundSection from "../components/Globals/BackgroundSection"
 import Info from '../components/Home/Info'
+import Menu from '../components/Home/Menu'
+import Products from '../components/Home/Products'
+import Contact from '../components/Home/Contact'
 import Footer from '../components/Globals/Footer'
 
 
@@ -13,6 +16,9 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <BackgroundSection img={data.img.childImageSharp.fluid} title="regular joe's" />
     <Info />
+    <Menu items={data.menu}/>
+    <Products />
+    <Contact />
     <Footer />
   </Layout>
 )
@@ -24,6 +30,24 @@ export const query = graphql`
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+    menu: allContentfulCoffeeItem {
+      edges {
+        node {
+          id
+          title
+          description {
+            description
+          }
+          price
+          category
+          image {
+            fixed(width: 50, height: 50) {
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
         }
       }
     }
